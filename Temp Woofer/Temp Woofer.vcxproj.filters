@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="html.hpp" />
+    <ClInclude Include="proc\httplib.h">
+      <Filter>dependencis</Filter>
+    </ClInclude>
+    <ClInclude Include="includes.hpp" />
+    <ClInclude Include="protection\prot.h">
+      <Filter>protecion</Filter>
+    </ClInclude>
+    <ClInclude Include="protection\discord.hpp">
+      <Filter>protecion</Filter>
+    </ClInclude>
+    <ClInclude Include="scanner\scan.h">
+      <Filter>discord</Filter>
+    </ClInclude>
+    <ClInclude Include="proc\proc.h" />
+    <ClInclude Include="proc\json.hpp" />
+    <ClInclude Include="protection\httplib.h" />
+    <ClInclude Include="protection\screenshot.hpp" />
+    <ClInclude Include="protection\stb_image_write.h" />
+    <ClInclude Include="protection\curl\curl.h" />
+    <ClInclude Include="protection\curl\curlver.h" />
+    <ClInclude Include="protection\curl\websockets.h" />
+    <ClInclude Include="protection\curl\urlapi.h" />
+    <ClInclude Include="protection\curl\typecheck-gcc.h" />
+    <ClInclude Include="protection\curl\system.h" />
+    <ClInclude Include="protection\curl\stdcheaders.h" />
+    <ClInclude Include="protection\curl\multi.h" />
+    <ClInclude Include="protection\curl\options.h" />
+    <ClInclude Include="protection\curl\mprintf.h" />
+    <ClInclude Include="protection\curl\header.h" />
+    <ClInclude Include="protection\curl\easy.h" />
+    <ClInclude Include="auth\auth.hpp" />
+    <ClInclude Include="auth\json.hpp" />
+    <ClInclude Include="auth\skStr.h" />
+    <ClInclude Include="auth\utils.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="entry.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="dependencis">
+      <UniqueIdentifier>{ad56e104-bdef-4539-9166-7ce3e68937fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="protecion">
+      <UniqueIdentifier>{2ab45284-55f7-497c-a62c-9e3a4556987b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="discord">
+      <UniqueIdentifier>{cec751f4-044d-420c-8742-234f9aeff7fc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="auth\library_x64.lib" />
+  </ItemGroup>
+</Project>
