@@ -1,71 +1,64 @@
-# **Temp HWID Spoofer**
+md
+# Temp-Spoofer
 
-A lightweight, temporary hardware ID (HWID) spoofing utility designed to change system-reported serials and identifiers.
-**Driver is not included** – this project only contains the user-mode components and interface logic.
+A web-based UI (HTML/JS) powered by a C++ backend for temporary hardware ID (HWID) spoofing. **Driver is not included** – this project only contains the user-mode components and interface logic.
 
 ## ⭐ Overview
 
-This tool was originally built as a personal experiment to understand how Windows interacts with hardware identifiers through kernel-level drivers. The spoofer temporarily modifies various HWID-related values for testing, debugging, and research purposes.
+This tool was originally built as a personal experiment to understand how Windows interacts with hardware identifiers through kernel-level drivers. The spoofer temporarily modifies various HWID-related values for testing, debugging, and possibly other (unintended) purposes.  Use this at your own risk.
 
-This repository **does not** contain:
+## Key Features & Benefits
 
-* Any kernel driver
-* Any signed or unsigned binaries capable of modifying protected identifiers
-* Anything that provides real spoofing functionality out of the box
+*   **Temporary HWID Spoofing:** Modifies system-reported serials and identifiers without persistent changes (reboot reverts).
+*   **Web-Based UI:** User-friendly interface built with HTML/JS for easy interaction.
+*   **C++ Backend:** Efficient and performant backend for managing spoofing operations.
+*   **Modular Design:** Clear separation of concerns between the UI and core spoofing logic.
+*   **Lightweight:** Minimal overhead, ensuring minimal performance impact.
 
-Instead, it provides the **framework**, **UI/CLI**, and **logic structure** used to communicate with a driver that performs the spoofing.
+## Prerequisites & Dependencies
 
-## 🔧 What It Does
+Before you begin, ensure you have met the following requirements:
 
-* Sends spoofing requests to a kernel-level driver
-* Supports temporary HWID changes (reset after reboot)
-* Includes user-mode logic for binding spoof profiles
-* Provides a clean base for anyone implementing their own driver
+*   **Operating System:** Windows
+*   **Compiler:** Visual Studio with C++ support
+*   **Dependencies:**
+    *   `httplib.h`
+    *   A pre-built `library_x64.lib` (assumed to be provided)
+    *   Any modern web browser.
 
-## 📁 What’s Missing
+## Installation & Setup Instructions
 
-This project does **not** include:
+1.  **Open the Solution:**
+    Open the `Temp Woofer.sln` file in Visual Studio.
 
-* The kernel driver responsible for actual serial changes
-* Any method of bypassing protections, anti-cheat systems, or EAC/BE-related hooks
-* Any exploitation or security circumvention code
+2.  **Build the Project:**
+    Build the "Temp Woofer" project in Visual Studio. Make sure to configure the build for x64 architecture.
 
-If you want full functionality, you must implement or provide **your own driver**.
+3.  **Locate the Executable:**
+    The built executable will be located in the `x64/Debug` or `x64/Release` directory (depending on your build configuration).
 
-## 🛠️ Requirements
+4.  **UI Components:**
+    The web-based UI files (HTML, JavaScript) are embedded within the C++ backend.  No separate UI setup is required.
 
-* Windows 10/11
-* Kernel driver (not provided) that exposes IOCTLs for serial/identifier rewriting
-* Administrator privileges
-* Visual Studio / C++ toolchain
+## Usage Examples
 
-## 📂 Project Structure
+1.  **Run the Executable:**
+    Execute the `Temp Woofer.exe` file. This will start the backend server.
 
-```
-temp spoofer.sln
-temp spoofer/
-│
-├── Entry.cpp               // Program entry point / initialization
-├── html.hpp                // Embedded HTML (UI/text formatting)
-├── incluedes.hpp           // Global includes & project-wide headers
-│
-├── Protection/
-│   ├── discord.hpp         // Discord webhook/reporting utils
-│   ├── httplib.h           // HTTP client library
-│   ├── prot.h              // Protection logic (anti-debug, checks, etc.)
-│   ├── screenshot.hpp      // Screenshot capture utilities
-│   └── stb_image_write.h   // Image output dependency
-│
-├── Auth/
-│   ├── auth.hpp            // Authentication interface
-│   ├── json.hpp            // JSON parser for auth/config
-│   ├── skStr.h             // String obfuscation (skCrypt-like)
-│   ├── Utils.hpp           // Misc utility functions
-│   └── library_x64.lib     // External library required for auth
-```
+2.  **Open the UI in your Browser:**
+    The application contains embedded HTML and JavaScript to display the WebUI, please refer to the code for the expected usage.
 
-## ⚠️ Disclaimer
+## Configuration Options
 
-This project is provided **strictly for educational and research purposes.**
-You are responsible for complying with all local laws and terms of service.
-Misuse of this project is **not supported or endorsed**.
+*   Currently, configuration options are set within the C++ source code. Modifications to the following can be made by altering the project source.
+    *   HWID values to be spoofed.
+    *   Backend server port.
+    *   Spoofing behavior
+
+## License Information
+
+This project is licensed under the [Mozilla Public License 2.0](LICENSE). See the `LICENSE` file for details.
+
+## Acknowledgments
+
+*   `httplib.h`:  A single-file header-only C++ HTTP/HTTPS server library.
