@@ -1,4 +1,4 @@
-md
+
 # Temp-Spoofer
 
 A web-based UI (HTML/JS) powered by a C++ backend for temporary hardware ID (HWID) spoofing. **Driver is not included** – this project only contains the user-mode components and interface logic.
